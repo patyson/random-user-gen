@@ -19,4 +19,4 @@ This completed component is one small part of a larger project still in progress
 ### Contact ###
 Please reach out to me at [philip.tyson.dev](mailto:philip.tyson.dev) for questions or more info.
 
-Thank you.
+Thank you for taking the time to look at my code.
