@@ -1,54 +1,45 @@
-//import './App.css';
-import React, { useEffect, useState } from 'react'
-import Header from './components/Header'
-import Home from './components/Home'
+import { useEffect, useState } from 'react'
+import Profile from './components/Profile'
+import Button from './components/Button'
+import './sass/profile.scss'
+import './sass/button.scss'
 
-//function App() {
-//    const [error, setError] = useState(null)
-//    const [isLoaded, setIsLoaded] = useState(false)
-//    const [user, setUser] = useState({})
+function App() {
+    const [isLoaded, setIsLoaded] = useState(false)
+    //set default state to be updated after fetch
+    const [user, setUser] = useState([])
 
-//    useEffect(() => {
-//        fetchUser()
-//    }, [])
+    //fetch user info only once
+    useEffect(() => {
+        updateProfile()
+    }, [])
 
-//    //get random user info
-//    const fetchUser = async () => {
-//        const res = await fetch('https://randomuser.me/api')
-//        const data = await res.json()
-//        //don't need info part of json, just the user data 'results'
-//        const userObj = data.results[0]
-//        setIsLoaded(true)
-//        setUser(userObj)
-//        const userName = userObj.name.first
-//    }
-
-
-//    return (
-//        <div>
-//            <Header firstName={user.name.first}/>
-//            <Home />
-//        </div>
-//    );
-//}
-
-class App extends React.Component {
-    componentDidMount() {
-        const fetchUser = async () => {
-            fetch('https://randomuser.me/api')
-            .then(res => res.json())
-            .then(data => this.setState({user: data}))
-        }
-
+    //fetch random user info
+    const fetchUser = async () => {
+        const res = await fetch('https://randomuser.me/api')
+        const data = await res.json()
+        //don't need info part of json, just the user data 'results'
+        const userObj = data.results[0]
+        setIsLoaded(true)
+        return userObj
     }
 
-    render() {
-        console.log(this)
-       return (
-            <div>
-                <Header firstName={this.name.first}/>
-                <Home />
-            </div>
+    //fill state with user info
+    async function updateProfile() {
+        const userAPI = await fetchUser()
+        setUser(userAPI)
+    }
+
+    if(!isLoaded) {
+        console.log('not loaded yet')
+        return <div>Loading...</div>
+    } else {
+        console.log('loading done')
+        return (
+            <>
+                <Profile user={user}/>
+                <Button text={"Generate New Profile"} onClick={updateProfile}/>
+            </>
         );
     }
 }

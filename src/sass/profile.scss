@@ -1,0 +1,60 @@
+body {
+    background:#ececec;
+}
+
+#root {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:1em;
+}
+
+.profileContainer {
+    box-shadow:0px 5px 10px rgba(0,0,0,0.2);
+    border-radius:5px;
+    background:#fffdf8;
+    margin:0 auto;
+    text-align:center;
+    margin-bottom:2em;
+}
+
+.imgContainer {
+    overflow:hidden;
+    padding:1em;
+    border-bottom:1px solid #dbdbdb;
+
+    img {
+        object-fit:cover;
+        border-radius:50%;
+        border:5px solid #ececec;
+    }
+}
+
+.textContainer {
+    border-top:1px solid white;
+
+    h1 {
+        border-bottom:1px solid #dbdbdb;
+        padding:1em;
+        margin:0;
+    }
+
+    p {
+        border-top:1px solid white;
+        border-bottom:1px solid #dbdbdb;
+        padding:1em;
+        margin:0;
+    }
+
+    a {
+        font-weight:600;
+        color:rgba(0,0,0,0.8)
+    }
+
+    .fa-icon {
+        position:relative;
+        top:2px;
+        right:5px;
+        color:rgba(0,0,0,0.8);
+    }
+}
