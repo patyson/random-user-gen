@@ -1,4 +1,4 @@
-### Contact ###
+### Live Demo ###
 Want to see the app in action? [Check it out  here.](https://60b6c5096f5351008f182445--practical-pike-81fdb0.netlify.app/)
 
 ### Project Scope ###
